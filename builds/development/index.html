@@ -3,8 +3,25 @@
 <head>
 	<meta charset="UTF-8"/>
 	<title>Note Board</title>
-</head>
-<body>
-	<h1> Note Board</h1>
+	<script src="https://fb.me/react-0.13.3.min.js"></script>
+	<script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
+	</head>
+	<body>
+	
+	<script type="text/jsx">
+	
+	var Header = React.createClass({
+			render: function (){
+				return(
+					<div>
+					<h1> Note Board</h1>
+					</div>
+				);
+			}
+		});
+	
+		React.render(<Header />, document.body
+		);
+	</script>
 </body>
 </html>
