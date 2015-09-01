@@ -5,22 +5,28 @@
 	<title>Note Board</title>
 	<script src="https://fb.me/react-0.13.3.min.js"></script>
 	<script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
+	 <!--Custom Styles -->
+    <link href="css/style.css" rel="stylesheet" type="text/css" /> 
 	</head>
-	<body>
-	
+	<body>	
+	    <div id="react-container"></div>
 	<script type="text/jsx">
 	
-	var Header = React.createClass({
+	var Note = React.createClass({
 			render: function (){
 				return(
-					<div>
-					<h1> Note Board</h1>
+					<div className ="note">
+					<h1> {this.props.text}</h1>
+					<p> {this.props.children}</p>
 					</div>
 				);
 			}
 		});
 	
-		React.render(<Header />, document.body
+		React.render(
+			<div>
+				<Note text="Note">This is note text</Note>
+			</div>, document.getElementById('react-container')
 		);
 	</script>
 </body>
