@@ -3,8 +3,20 @@
 <head>
 	<meta charset="UTF-8"/>
 	<title>Note Board</title>
+
+	  <!-- jQuery, jQuery.ui -->
+    <link href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <!-- React -->
 	<script src="https://fb.me/react-0.13.3.min.js"></script>
 	<script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
+
 	 <!--Custom Styles -->
     <link href="css/style.css" rel="stylesheet" type="text/css" /> 
 	</head>
@@ -15,18 +27,23 @@
 	var Note = React.createClass({
 			render: function (){
 				return(
+
 					<div className ="note">
-					<h1> {this.props.text}</h1>
-					<p> {this.props.children}</p>
+						<p>{this.props.children}</p>
+						<span>
+							<button 
+	                            className="btn btn-success glyphicon glyphicon-pencil">button</button>
+	                    	<button 
+	                            className="btn btn-success glyphicon glyphicon-trash"/>
+						</span>
 					</div>
 				);
 			}
 		});
 	
 		React.render(
-			<div>
 				<Note text="Note">This is note text</Note>
-			</div>, document.getElementById('react-container')
+, document.getElementById('react-container')
 		);
 	</script>
 </body>
