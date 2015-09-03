@@ -25,24 +25,31 @@
 	<script type="text/jsx">
 	
 	var Note = React.createClass({
-			render: function (){
-				return(
+		edit: function(){
+			alert ("edit note");
+		},
+		remove: function (){
+			alert ("remove note");
+		},
 
-					<div className ="note">
-						<p>{this.props.children}</p>
-						<span>
-							<button 
-	                            className="btn btn-success glyphicon glyphicon-pencil">button</button>
-	                    	<button 
-	                            className="btn btn-success glyphicon glyphicon-trash"/>
-						</span>
-					</div>
-				);
-			}
-		});
+		render: function (){
+			return(
+				
+				<div className ="note">
+					<p>{this.props.children}</p>
+					<span>
+						<button onClick = {this.edit}
+	                        className="btn btn-success glyphicon glyphicon-pencil">button</button>
+	                    <button onClick = {this.remove}
+	                        className="btn btn-success glyphicon glyphicon-trash"/>
+					</span>
+				</div>
+			);
+		}
+	});
 	
-		React.render(
-				<Note text="Note">This is note text</Note>
+	React.render(
+			<Note text="Note">This is note text</Note>
 , document.getElementById('react-container')
 		);
 	</script>
