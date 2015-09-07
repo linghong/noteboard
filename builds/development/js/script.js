@@ -3,7 +3,7 @@
 var React = require('react');
 var NoteBoard = require('./noteBoard');
 React.render(
-	React.createElement(NoteBoard, {count: 10}), document.getElementById('react-container')
+	React.createElement(NoteBoard, {count: 4}), document.getElementById('react-container')
 );
 	var React = require("react");
 
@@ -67,13 +67,33 @@ module.exports = React.createClass({displayName: "exports",
 			}
 		}
 	},
-	render: function(){
-	 return React.createElement("div", {className: "noteboard"}, 
-	 	React.createElement("p", null, "This is  a note board and has ", this.props.count, " notes."), 
-	 	React.createElement(Note, {text: "Note"}, "This is a note text")
-	 )
+
+	getInitialState: function (){
+		return {
+			notes: [
+				'Make a phone call to Jim.',
+				'Mail letters',
+				'Buy a gift for Lisa',
+				'Watch Lesson 12'
+			]
+		};
+	},
+
+	render: function() {
+		return (
+			React.createElement("div", {className: "noteboard"}, 
+			 	React.createElement("p", null, "This is  a note board and has ", this.props.count, " notes."), 
+			 	
+			 		this.state.notes.map(function(note, i){
+			 			return (
+			 				React.createElement(Note, {key: i}, note)
+			 			);
+			 		})
+			 	
+		 	)
+		);
 	}
-})
+});
 },{"./note":2,"./noteBoard":3,"react":159}],2:[function(require,module,exports){
 	var React = require("react");
 
@@ -138,13 +158,33 @@ module.exports = React.createClass({displayName: "exports",
 			}
 		}
 	},
-	render: function(){
-	 return React.createElement("div", {className: "noteboard"}, 
-	 	React.createElement("p", null, "This is  a note board and has ", this.props.count, " notes."), 
-	 	React.createElement(Note, {text: "Note"}, "This is a note text")
-	 )
+
+	getInitialState: function (){
+		return {
+			notes: [
+				'Make a phone call to Jim.',
+				'Mail letters',
+				'Buy a gift for Lisa',
+				'Watch Lesson 12'
+			]
+		};
+	},
+
+	render: function() {
+		return (
+			React.createElement("div", {className: "noteboard"}, 
+			 	React.createElement("p", null, "This is  a note board and has ", this.props.count, " notes."), 
+			 	
+			 		this.state.notes.map(function(note, i){
+			 			return (
+			 				React.createElement(Note, {key: i}, note)
+			 			);
+			 		})
+			 	
+		 	)
+		);
 	}
-})
+});
 },{"./note":2,"react":159}],4:[function(require,module,exports){
 // shim for using process in browser
 

@@ -8,10 +8,30 @@ module.exports = React.createClass({displayName: "exports",
 			}
 		}
 	},
-	render: function(){
-	 return React.createElement("div", {className: "noteboard"}, 
-	 	React.createElement("p", null, "This is  a note board and has ", this.props.count, " notes."), 
-	 	React.createElement(Note, {text: "Note"}, "This is a note text")
-	 )
+
+	getInitialState: function (){
+		return {
+			notes: [
+				'Make a phone call to Jim.',
+				'Mail letters',
+				'Buy a gift for Lisa',
+				'Watch Lesson 12'
+			]
+		};
+	},
+
+	render: function() {
+		return (
+			React.createElement("div", {className: "noteboard"}, 
+			 	React.createElement("p", null, "This is  a note board and has ", this.props.count, " notes."), 
+			 	
+			 		this.state.notes.map(function(note, i){
+			 			return (
+			 				React.createElement(Note, {key: i}, note)
+			 			);
+			 		})
+			 	
+		 	)
+		);
 	}
-})
+});
