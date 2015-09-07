@@ -20,17 +20,26 @@ module.exports = React.createClass({
 		};
 	},
 
+	update: function(newText, i){
+		var noteArray = this.state.notes;
+		noteArray[i] = newText;
+		this.setState({notes: noteArray});
+	},
+
+	eachNote: function(note,i){
+		return (
+			 	<Note key={i} 
+			 		index ={i} 
+			 		onChange ={this.update}>
+			 		{note}</Note>
+			 	);
+	},
+
 	render: function() {
 		return (
 			<div className="noteboard">
 			 	<p>This is  a note board and has {this.props.count} notes.</p>
-			 	{
-			 		this.state.notes.map(function(note, i){
-			 			return (
-			 				<Note key={i}>{note}</Note>
-			 			);
-			 		})
-			 	}
+			 	{this.state.notes.map(this.eachNote)}
 		 	</div>
 		);
 	}
