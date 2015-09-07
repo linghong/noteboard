@@ -1,7 +1,6 @@
 
 var React = require('react');
-var Note = require('./note');
+var NoteBoard = require('./noteBoard');
 React.render(
-	<Note text="Note">This is note text</Note>
-	, document.getElementById('react-container')
+	<NoteBoard/>, document.getElementById('react-container')
 );
