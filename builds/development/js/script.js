@@ -17,6 +17,8 @@ React.render(
 			this.setState ({editing: true});
 		},
 		save:function(){
+			var val = this.refs.newText.getDOMNode().value;
+			alert('Do you want to save the text " '+ val +' " ?');
 			this.setState ({ editing: false});
 		},
 		remove: function (){
@@ -40,7 +42,7 @@ React.render(
 		renderForm: function(){
 			return (
 				React.createElement("div", {className: "note"}, 
-					React.createElement("textarea", {className: "form-control", defaultValue: this.props.children}), 
+					React.createElement("textarea", {ref: "newText", className: "form-control", defaultValue: this.props.children}), 
 					React.createElement("button", {onClick: this.save, className: "btn btn-success btn-sm glyphicon glyphicon-floppydisk"})
 				)
 			)
@@ -68,6 +70,8 @@ React.render(
 			this.setState ({editing: true});
 		},
 		save:function(){
+			var val = this.refs.newText.getDOMNode().value;
+			alert('Do you want to save the text " '+ val +' " ?');
 			this.setState ({ editing: false});
 		},
 		remove: function (){
@@ -91,7 +95,7 @@ React.render(
 		renderForm: function(){
 			return (
 				React.createElement("div", {className: "note"}, 
-					React.createElement("textarea", {className: "form-control", defaultValue: this.props.children}), 
+					React.createElement("textarea", {ref: "newText", className: "form-control", defaultValue: this.props.children}), 
 					React.createElement("button", {onClick: this.save, className: "btn btn-success btn-sm glyphicon glyphicon-floppydisk"})
 				)
 			)
