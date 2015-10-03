@@ -34,7 +34,11 @@ module.exports = React.createClass({displayName: "exports",
 		console.log(noteArray);
 	},
 
-
+	count: function() {
+		var noteArray = this.state.notes;
+		console.log("length");
+		return noteArray.length;
+	},
 	eachNote: function(note,i){
 		return (
 			 	React.createElement(Note, {key: i, 
@@ -50,7 +54,7 @@ module.exports = React.createClass({displayName: "exports",
 	render: function() {
 		return (
 			React.createElement("div", {className: "noteboard"}, 
-			 	React.createElement("p", null, "This is  a note board and has ", this.props.count, " notes."), 
+			 	React.createElement("p", null, "This is  a note board and has ", this.count(), " notes."), 
 			 	this.state.notes.map(this.eachNote)
 		 	)
 		);

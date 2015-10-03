@@ -34,7 +34,11 @@ module.exports = React.createClass({
 		console.log(noteArray);
 	},
 
-
+	count: function() {
+		var noteArray = this.state.notes;
+		console.log("length");
+		return noteArray.length;
+	},
 	eachNote: function(note,i){
 		return (
 			 	<Note key={i} 
@@ -50,7 +54,7 @@ module.exports = React.createClass({
 	render: function() {
 		return (
 			<div className="noteboard">
-			 	<p>This is  a note board and has {this.props.count} notes.</p>
+			 	<p>This is  a note board and has {this.count()} notes.</p>
 			 	{this.state.notes.map(this.eachNote)}
 		 	</div>
 		);
