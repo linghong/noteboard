@@ -3,7 +3,7 @@ var React = require('react');
 module.exports = React.createClass({
 	
 	getInitialState: function(){
-		return {editing:false};
+		return {editing: false};
 	},
 
 	edit: function(){
@@ -17,12 +17,13 @@ module.exports = React.createClass({
 		this.setState ({editing: false});
 	},
 
-	remove: function (){
-		alert ("remove note");
+	//remove a note
+	remove: function(){
+		this.props.onRemove(this.props.index);
 	},
 
 	renderDisplay: function (){
-		return(				
+		return (				
 			<div className ="note">
 				<p>{this.props.children}</p>
 				<span>

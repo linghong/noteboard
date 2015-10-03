@@ -26,12 +26,24 @@ module.exports = React.createClass({displayName: "exports",
 		this.setState({notes: noteArray});
 	},
 
+	////delete the clicked one from the noteArray
+	remove: function(i){
+		var noteArray = this.state.notes;
+		noteArray.splice(i, 1); 
+		this.setState({notes: noteArray});
+		console.log(noteArray);
+	},
+
+
 	eachNote: function(note,i){
 		return (
 			 	React.createElement(Note, {key: i, 
 			 		index: i, 
-			 		onChange: this.update}, 
-			 		note)
+			 		onChange: this.update, 
+			 		onRemove: this.remove
+			 	}, 
+			 		note
+			 	)
 			 	);
 	},
 
