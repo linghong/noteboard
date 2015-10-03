@@ -84,21 +84,27 @@ module.exports = React.createClass({displayName: "exports",
 		};
 	},
 
-	update: function(newText, i){
+	addNote: function(text) {
+		var noteArray =this.state.notes;
+		noteArray.push(text);
+		this.setState({notes: noteArray});
+	},
+
+	updateNote: function(newText, i){
 		var noteArray = this.state.notes;
 		noteArray[i] = newText;
 		this.setState({notes: noteArray});
 	},
 
 	////delete the clicked one from the noteArray
-	remove: function(i){
+	removeNote: function(i){
 		var noteArray = this.state.notes;
 		noteArray.splice(i, 1); 
 		this.setState({notes: noteArray});
 		console.log(noteArray);
 	},
 
-	count: function() {
+	countNote: function() {
 		var noteArray = this.state.notes;
 		console.log("length");
 		return noteArray.length;
@@ -107,8 +113,8 @@ module.exports = React.createClass({displayName: "exports",
 		return (
 			 	React.createElement(Note, {key: i, 
 			 		index: i, 
-			 		onChange: this.update, 
-			 		onRemove: this.remove
+			 		onChange: this.updateNote, 
+			 		onRemove: this.removeNote
 			 	}, 
 			 		note
 			 	)
@@ -118,8 +124,9 @@ module.exports = React.createClass({displayName: "exports",
 	render: function() {
 		return (
 			React.createElement("div", {className: "noteboard"}, 
-			 	React.createElement("p", null, "This is  a note board and has ", this.count(), " notes."), 
-			 	this.state.notes.map(this.eachNote)
+			 	React.createElement("p", null, "This is  a note board and has ", this.countNote(), " notes."), 
+			 	this.state.notes.map(this.eachNote), 
+			 	React.createElement("button", {className: "btn glyphicon-plus", onClick: this.addNote.bind(null, "New Note")})
 		 	)
 		);
 	}
@@ -205,21 +212,27 @@ module.exports = React.createClass({displayName: "exports",
 		};
 	},
 
-	update: function(newText, i){
+	addNote: function(text) {
+		var noteArray =this.state.notes;
+		noteArray.push(text);
+		this.setState({notes: noteArray});
+	},
+
+	updateNote: function(newText, i){
 		var noteArray = this.state.notes;
 		noteArray[i] = newText;
 		this.setState({notes: noteArray});
 	},
 
 	////delete the clicked one from the noteArray
-	remove: function(i){
+	removeNote: function(i){
 		var noteArray = this.state.notes;
 		noteArray.splice(i, 1); 
 		this.setState({notes: noteArray});
 		console.log(noteArray);
 	},
 
-	count: function() {
+	countNote: function() {
 		var noteArray = this.state.notes;
 		console.log("length");
 		return noteArray.length;
@@ -228,8 +241,8 @@ module.exports = React.createClass({displayName: "exports",
 		return (
 			 	React.createElement(Note, {key: i, 
 			 		index: i, 
-			 		onChange: this.update, 
-			 		onRemove: this.remove
+			 		onChange: this.updateNote, 
+			 		onRemove: this.removeNote
 			 	}, 
 			 		note
 			 	)
@@ -239,8 +252,9 @@ module.exports = React.createClass({displayName: "exports",
 	render: function() {
 		return (
 			React.createElement("div", {className: "noteboard"}, 
-			 	React.createElement("p", null, "This is  a note board and has ", this.count(), " notes."), 
-			 	this.state.notes.map(this.eachNote)
+			 	React.createElement("p", null, "This is  a note board and has ", this.countNote(), " notes."), 
+			 	this.state.notes.map(this.eachNote), 
+			 	React.createElement("button", {className: "btn glyphicon-plus", onClick: this.addNote.bind(null, "New Note")})
 		 	)
 		);
 	}

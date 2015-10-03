@@ -20,21 +20,27 @@ module.exports = React.createClass({
 		};
 	},
 
-	update: function(newText, i){
+	addNote: function(text) {
+		var noteArray =this.state.notes;
+		noteArray.push(text);
+		this.setState({notes: noteArray});
+	},
+
+	updateNote: function(newText, i){
 		var noteArray = this.state.notes;
 		noteArray[i] = newText;
 		this.setState({notes: noteArray});
 	},
 
 	////delete the clicked one from the noteArray
-	remove: function(i){
+	removeNote: function(i){
 		var noteArray = this.state.notes;
 		noteArray.splice(i, 1); 
 		this.setState({notes: noteArray});
 		console.log(noteArray);
 	},
 
-	count: function() {
+	countNote: function() {
 		var noteArray = this.state.notes;
 		console.log("length");
 		return noteArray.length;
@@ -43,8 +49,8 @@ module.exports = React.createClass({
 		return (
 			 	<Note key={i} 
 			 		index ={i} 
-			 		onChange = {this.update}
-			 		onRemove = {this.remove}
+			 		onChange = {this.updateNote}
+			 		onRemove = {this.removeNote}
 			 	>
 			 		{note}
 			 	</Note>
@@ -54,8 +60,9 @@ module.exports = React.createClass({
 	render: function() {
 		return (
 			<div className="noteboard">
-			 	<p>This is  a note board and has {this.count()} notes.</p>
+			 	<p>This is  a note board and has {this.countNote()} notes.</p>
 			 	{this.state.notes.map(this.eachNote)}
+			 	<button className="btn glyphicon-plus" onClick={this.addNote.bind(null, "New Note")}/>
 		 	</div>
 		);
 	}
