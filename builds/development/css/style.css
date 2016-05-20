@@ -4,6 +4,7 @@ div.board,
 div#react-container {
     height: 100%;
     overflow: hidden;
+    padding:20px;
 }
 
 body {
