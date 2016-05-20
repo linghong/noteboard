@@ -4,7 +4,7 @@ div.board,
 div#react-container {
     height: 100%;
     overflow: hidden;
-    padding:20px;
+    padding:10px;
 }
 
 body {
@@ -27,8 +27,8 @@ div.board {
 }
 
 div.note {
-    height: 150px;
-    width: 150px;
+    height: 120px;
+    width: 200px;
     background-color: green;
     margin: 2px 0;
     position: relative;
