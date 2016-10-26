@@ -40,7 +40,7 @@ module.exports = React.createClass({
 		return (
 			<div className="note">
 				<textarea ref="newText" className="form-control" defaultValue = {this.props.children}></textarea>
-				<button onClick = {this.save} className="btn btn-success btn-sm glyphicon glyphicon-floppydisk"/>
+				<button onClick = {this.save} className="btn btn-success btn-sm glyphicon glyphicon-floppydisk">Save<button/>
 			</div>
 		)
 	},
