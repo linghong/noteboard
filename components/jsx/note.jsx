@@ -46,11 +46,7 @@ module.exports = React.createClass({
 	},
 
 	render: function(){
-		if (this.state.editing){
-			return this.renderForm();
-		} else {
-			return this.renderDisplay();
-		}			
+		return (this.state.editing)? this.renderForm() : this.renderDisplay();			
 	}
 });
 
